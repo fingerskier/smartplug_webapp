@@ -1,0 +1,137 @@
+:root {
+  --bg: #000;
+  --surface: #1c1c1c;
+  --text: #f4f4f4;
+  --muted: #a8a8a8;
+  --gold: #eeb735;
+  --gold-glow: rgb(238 183 53 / 45%);
+  --error: #ff8a7a;
+
+  color-scheme: dark;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-tap-highlight-color: transparent;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  background: var(--bg);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  max-width: 28rem;
+  margin: 0 auto;
+  padding: max(2rem, env(safe-area-inset-top)) 16px max(2rem, env(safe-area-inset-bottom));
+  text-align: center;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+#status {
+  margin: 0;
+  min-height: 1.5em;
+  color: var(--muted);
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+button:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 4px;
+}
+
+.power {
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 0.5rem;
+  width: min(15rem, 70vw);
+  aspect-ratio: 1;
+  border: 4px solid #3a3a3a;
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 1.5rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  transition:
+    background 0.2s,
+    border-color 0.2s,
+    box-shadow 0.2s,
+    color 0.2s,
+    transform 0.1s;
+}
+
+.power svg {
+  width: 40%;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+}
+
+.power:not(:disabled):active {
+  transform: scale(0.97);
+}
+
+.power:disabled {
+  opacity: 0.4;
+}
+
+.power.on {
+  border-color: var(--gold);
+  background: var(--gold);
+  color: var(--bg);
+  box-shadow: 0 0 3rem var(--gold-glow);
+}
+
+.connect {
+  min-width: 12rem;
+  padding: 0.9rem 1.5rem;
+  border: 2px solid var(--gold);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--gold);
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.connect:disabled {
+  opacity: 0.5;
+}
+
+.message {
+  margin: 0;
+  color: var(--error);
+  line-height: 1.45;
+}
